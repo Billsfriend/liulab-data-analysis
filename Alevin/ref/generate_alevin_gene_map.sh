@@ -1,0 +1,1 @@
+bioawk -c gff '$feature=="transcript" {print $group}' <(gunzip -c gencode.vM31.primary_assembly.annotation.gtf.gz) | awk -F ' ' '{print substr($4,2,length($4)-3) "\t" substr($8,2,length($8)-3)}' - > mm_txp2gene_symbol.tsv 
