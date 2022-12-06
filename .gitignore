@@ -6,6 +6,8 @@
 *.pdf
 *.png
 *.rds
+*.h5ad
+*.h5seurat
 *.mtx
 *.mhtml
 *.html
@@ -15,3 +17,5 @@
 *.csv
 *.tsv
 *.txt
+*.Rproj
+*.pdf
