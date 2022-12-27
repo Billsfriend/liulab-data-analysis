@@ -8,7 +8,7 @@
 }
 
 # load data
-Human_sobj <- readRDS("covid19/data/Final_nCoV_0716_upload_BGI.RDS")
+Human_sobj <- readRDS("covid19/data/Final_nCoV_0716_upload_BGI.rds")
 
 Human_sobj <- readRDS("covid19/data/blish_covid_NM2020.rds")
 
