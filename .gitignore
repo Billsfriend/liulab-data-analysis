@@ -19,3 +19,10 @@
 *.txt
 *.Rproj
 *.pdf
+*.vcf_bgzip
+*.tabular
+*.bam
+*.bai
+*.json
+*.bed
+*.interval
