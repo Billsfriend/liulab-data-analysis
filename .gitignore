@@ -26,3 +26,8 @@
 *.json
 *.bed
 *.interval
+CRC-I/data/
+CRC-I/figures/
+CRC-I/results/
+IgG-IgM-B/data/
+IgG-IgM-B/results/
