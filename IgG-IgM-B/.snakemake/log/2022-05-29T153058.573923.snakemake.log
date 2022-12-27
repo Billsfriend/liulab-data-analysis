@@ -1,0 +1,8 @@
+Building DAG of jobs...
+MissingInputException in line 7 of /home/Bill/Documents/DataAnalysis/IgG-IgM-B/Snakefile:
+Missing input files for rule salmon_quant:
+    output: quants/IgG/quant.sf
+    wildcards: sample=IgG
+    affected files:
+        data/LSC-IgG_2.fastq.gz
+        data/LSC-IgG_1.fastq.gz

@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job        count    min threads    max threads
+-------  -------  -------------  -------------
+tximeta        1              1              1
+total          1              1              1
+
+Select jobs to execute...
+
+[Sun May 29 20:44:34 2022]
+rule tximeta:
+    input: quants/G/quant.sf, quants/M/quant.sf
+    output: data/geneSumExp.rds
+    jobid: 0
+    reason: Missing output files: data/geneSumExp.rds
+    resources: tmpdir=/tmp
+
+[Sun May 29 20:44:48 2022]
+Error in rule tximeta:
+    jobid: 0
+    output: data/geneSumExp.rds
+
+RuleException:
+CalledProcessError in line 27 of /home/Bill/Documents/DataAnalysis/IgG-IgM-B/Snakefile:
+Command 'set -euo pipefail;  Rscript --vanilla /home/Bill/Documents/DataAnalysis/IgG-IgM-B/.snakemake/scripts/tmpv7iolv0q.tximeta.R' returned non-zero exit status 1.
+  File "/home/Bill/Documents/DataAnalysis/IgG-IgM-B/Snakefile", line 27, in __rule_tximeta
+  File "/home/Bill/anaconda3/envs/snakemake-salmon/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2022-05-29T204434.414606.snakemake.log
