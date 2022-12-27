@@ -13,7 +13,7 @@
 }
 
 # load data
-Human_PBMC <- readRDS("IgG-IgM-B/data/Zhu-Liu_2020_covid19/nCoV_0716_upload.RDS")
+Human_PBMC <- readRDS("covid19/data/blish_covid_NM2020.rds")
 DefaultAssay(Human_PBMC) <- "RNA" # set default assay
 
 Idents(Human_PBMC) <- Human_PBMC$Stage
