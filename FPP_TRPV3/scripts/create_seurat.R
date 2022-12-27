@@ -61,7 +61,7 @@ DimPlot(sobj)
 
 sobj <- subset(sobj, orig.ident != 'Lupus_nonlesion')
 
-sample_n(sobj, 10000) -> small_sobj
+human_cell_ref <- read_rds('CRC-I/ref/HumanPrimaryCellAtlas.rds')
 
 per_clust_idented <- sobj %>%
   as.SingleCellExperiment() %>%
