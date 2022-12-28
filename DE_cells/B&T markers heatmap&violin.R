@@ -150,7 +150,7 @@ plot_hooked_heatmap <- function(sobj, features){
       number_color = "black",
       legend = FALSE,
       fontsize = 6,
-      fontsize_number = 7
+      fontsize_number = 6
     ) %>%
     ggplotify::as.ggplot()}
 
