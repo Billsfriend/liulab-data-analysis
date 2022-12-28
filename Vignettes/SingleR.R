@@ -5,12 +5,15 @@
 library(tidyverse)
 
 library(celldex)
-hpca.se <- celldex::HumanPrimaryCellAtlasData() # Human Primary Cell Atlas data as a SummarizedExperiment object containing a matrix of log-expression values with sample-level labels
-# these datasets will be used as reference
+hpca.se <- celldex::HumanPrimaryCellAtlasData() 
+# Human Primary Cell Atlas data as a SummarizedExperiment object containing a matrix of log-expression values with sample-level labels
+
 write_rds(hpca.se, "ref/HumanPrimaryCellAtlas.rds")
 
 library(scRNAseq)
-hESCs <- LaMannoBrainData("human-es") # some human embryonic stem cells as example test data
+hESCs <- LaMannoBrainData("human-es") 
+# some human embryonic stem cells as example test data
+
 hESCs <- hESCs[, 1:100] # sample 100 cells for quick demo
 
 # use our hpca.se reference to annotate each cell in hESCs via the SingleR() function
@@ -80,7 +83,7 @@ plotHeatmap(natSE,
 
 # other references -----------
 # immune references from celldex
-immgen <- ImmGenData() # most exhaustive coverage of dizzying number of subtypes, which is all murine
+immgen <- ImmGenData() # most exhaustive coverage of dizzying number of subtypes, which is all MURINE
 
 diceRef <- celldex::DatabaseImmuneCellExpressionData() # particularly useful to those interested in CD4+ T cell subsets, though the lack of CD4+ central memory, effector memory, DC and B cell subset sample
 
