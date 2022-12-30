@@ -66,7 +66,7 @@ sobj@meta.data %>%
   geom_vline(xintercept = 500)
 
 # load 10x TPM data ------------
-data <- fread("data/cell/CRC.Leukocyte.10x.TPM.txt.gz")
+data <- fread("CRC-I/data/Zhang-Yu-2020/CRC.Leukocyte.10x.TPM.txt.gz")
 
 data[1:5, 1:5]
 
@@ -75,18 +75,23 @@ genes <- data$V1
 II_10x <- c('P0410','P0323','P0408','P1026','P0104')
 IT_10x <- c('P0123','P0202','P0613','P1025','P0305')
 
+# the cell naming: P_N_P0410_01391, first letter is always 'P', second letter is N/P/T representing tissue source.
+# here we only need cells in tumor
 select(data, contains(c(II_10x, IT_10x))) -> data
+select(data, contains('_T_')) -> data
 
 sobj <- CreateSeuratObject(data,
                            row.names = genes,
-                           names.field = 3)
+                           names.field = 3,
+                           min.cells = 1,
+                           min.features = 1)
 
 sobj@meta.data -> seurat_meta
 
 seurat_meta$CellName <- rownames(seurat_meta)
 
 # load metadata
-tenx_meta <- read_delim("data/cell/CRC.Leukocyte.10x.Metadata.txt")
+tenx_meta <- read_delim("CRC-I/data/Zhang-Yu-2020/CRC.Leukocyte.10x.Metadata.txt")
 
 # assign I232T genotype in tenx_meta
 tenx_meta %>%
@@ -96,15 +101,13 @@ tenx_meta %>%
     TRUE ~ 'NA'
   )) %>%
   filter(genotype != 'NA') %>%
-  mutate(rowname = CellName) %>%
-  as.data.frame() %>%
   right_join(seurat_meta) %>%
-  column_to_rownames('rowname') -> tenx_meta
+  column_to_rownames('CellName') -> tenx_meta
 
 sobj@meta.data <- tenx_meta
  
 # save 10x seurat file
-write_rds(sobj, 'data/cell/tpm_10x.rds')
+write_rds(sobj, 'CRC-I/data/Zhang-Yu-2020/zy2020_tumor10x.rds')
 
 # Visualize the number of cell counts per sample
 sobj@meta.data %>% 

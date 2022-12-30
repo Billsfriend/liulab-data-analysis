@@ -8,7 +8,7 @@ library(celldex)
 hpca.se <- celldex::HumanPrimaryCellAtlasData() 
 # Human Primary Cell Atlas data as a SummarizedExperiment object containing a matrix of log-expression values with sample-level labels
 
-write_rds(hpca.se, "ref/HumanPrimaryCellAtlas.rds")
+write_rds(hpca.se, "CRC-I/ref/HumanPrimaryCellAtlas.rds")
 
 library(scRNAseq)
 hESCs <- LaMannoBrainData("human-es") 

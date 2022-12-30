@@ -4,7 +4,7 @@ library(SingleR)
 library(BiocParallel)
 library(tidyverse)
 
-ref_huPrCellAtlas <- read_rds("../CRC-I/ref/HumanPrimaryCellAtlas.rds")
+ref_huPrCellAtlas <- read_rds("CRC-I/ref/HumanPrimaryCellAtlas.rds")
 
 PbmcImmune <- celldex::MonacoImmuneData()
 
