@@ -24,7 +24,7 @@ data %>%
   pivot_longer(3:4, names_to = 'group', values_to = 'titer') %>%
   filter(!is.na(titer)) %>%
   mutate(day = str_glue('d{day}')) %>%
-  filter(day == 'd17') %>%
+  filter(day == 'd17' & type %in% c('IgG1','IgG2c')) %>%
   ggplot(aes(group, titer, color = group)) +
   stat_summary(geom = 'col', fun = 'mean', fill = 'white', linewidth = 1)+
   stat_summary(fun.data = 'mean_se', geom = 'errorbar', width = 0.3)+
@@ -33,6 +33,6 @@ data %>%
   ggprism::theme_prism()+
   stat_compare_means(comparisons = list(c('II','IT')), method = 't.test')+
   scale_color_discrete(label = c('II (n=6)','IT (n=5)'))+
-  facet_wrap(~type+day, scales = 'free')+
+  facet_wrap(~type+day)+
   scale_y_continuous(expand = expansion(mult = c(0,0.1)))
 
